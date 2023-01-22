@@ -15,7 +15,7 @@ func _init():
 		quit(1)
 		return
 
-	var applier = ThemeApplier.new(debug)
+	var applier = ThemeApplier.new(debug != "")
 	var simplifier = CSSSimplifier.new()
 	var fullStylesheet = simplifier.simplify(stylesheet)
 	var themes = applier.apply_css(fullStylesheet)

@@ -16,4 +16,5 @@ func init() -> bool:
 
 func get_value(key: String) -> String:
 	if not args: return ""
+	args.get_value()
 	return args.get_value(key)
