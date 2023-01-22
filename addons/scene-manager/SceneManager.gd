@@ -12,7 +12,7 @@ var transitioning = false
 
 func _input(event):
 	if transitioning:
-		get_tree().set_input_as_handled()
+		get_viewport().set_input_as_handled()
 
 
 func reload_scene():
@@ -26,7 +26,7 @@ func change_scene(scene):
 	transitioning = true
 	
 	await _play_transition(DEFAULT_SPEED, false)
-	get_tree().change_scene(path)
+	get_tree().change_scene_to_file(path)
 	await _play_transition(DEFAULT_SPEED, true)
 
 	transitioning = false
