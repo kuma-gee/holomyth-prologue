@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed := 300.0
 
 @onready var input: PlayerInput = $PlayerInput
-@onready var sprite := $Sprite2D
+@onready var sprite := $CollisionShape2D/AnimatedSprite2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 10
@@ -15,6 +15,9 @@ func _physics_process(delta):
 	
 	if abs(motion) > 0:
 		sprite.flip_h = sign(motion) == -1
+		sprite.animation = "Walk"
+	else:
+		sprite.animation = "Idle"
 	
 	if not is_on_floor():
 		velocity.y += gravity * delta

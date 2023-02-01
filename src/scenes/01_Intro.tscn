@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cg3vdwn6vuwy3"]
+[gd_scene load_steps=5 format=3 uid="uid://cg3vdwn6vuwy3"]
 
 [ext_resource type="Theme" uid="uid://cvvavdkxk7llv" path="res://theme/theme.tres" id="1"]
 [ext_resource type="Script" path="res://shared/effect/FadeEffect.gd" id="2"]
+[ext_resource type="Script" path="res://src/scenes/01_Intro.gd" id="2_xdtt4"]
+[ext_resource type="PackedScene" uid="uid://c0jncvulrw5rd" path="res://src/scenes/02_game.tscn" id="3_vraxu"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -11,6 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1")
+script = ExtResource("2_xdtt4")
+next_scene = ExtResource("3_vraxu")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -42,3 +46,10 @@ text = "THE_AWAKENING"
 script = ExtResource("2")
 delay = 2.0
 duration = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="finished" from="CenterContainer/HBoxContainer/Label2/FadeEffect2" to="." method="_on_fade_effect_2_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
