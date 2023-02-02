@@ -1,19 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgugdebjt8bce"]
+[gd_scene load_steps=6 format=3 uid="uid://dgugdebjt8bce"]
 
 [ext_resource type="Script" path="res://src/Start.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://blurtq1v44gav" path="res://addons/menu-system/RemapButton.tscn" id="2"]
-[ext_resource type="Theme" uid="uid://cvvavdkxk7llv" path="res://theme/theme.tres" id="3"]
+[ext_resource type="Theme" uid="uid://cvl5xxh8xe3vi" path="res://theme/theme.tres" id="3"]
 [ext_resource type="PackedScene" uid="uid://cg3vdwn6vuwy3" path="res://src/scenes/01_Intro.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://52wl52n07fn2" path="res://assets/titlescreen.png" id="5_pyvs7"]
 
 [node name="Start" type="Control"]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("3")
 script = ExtResource("1")
 next_scene = ExtResource("4")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_pyvs7")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -23,9 +35,14 @@ anchor_bottom = 1.0
 offset_top = -20.0
 offset_right = 104.0
 grow_vertical = 0
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 5
 
 [node name="RemapButton" parent="MarginContainer/HBoxContainer" instance=ExtResource("2")]
 layout_mode = 2
@@ -35,3 +52,5 @@ action = "ui_accept"
 [node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "START_GAME"
+horizontal_alignment = 1
+vertical_alignment = 1

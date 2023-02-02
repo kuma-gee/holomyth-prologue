@@ -1,7 +1,7 @@
-[gd_resource type="Theme" load_steps=2 format=3]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cvl5xxh8xe3vi"]
 
-[ext_resource type="FontFile" path="res://theme/jackeyfont.ttf" id="1_bexjt"]
+[ext_resource type="FontFile" uid="uid://cq1u7do3wphx3" path="res://theme/jackeyfont.ttf" id="1_a33f2"]
 
 [resource]
-default_font = ExtResource("1_bexjt")
+default_font = ExtResource("1_a33f2")
 default_font_size = 10
