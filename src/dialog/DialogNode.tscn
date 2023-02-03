@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b888v55qwlvns"]
+[gd_scene load_steps=8 format=3 uid="uid://k00cded3a4pe"]
 
-[ext_resource type="Theme" uid="uid://cvl5xxh8xe3vi" path="res://theme/theme.tres" id="1_3ukch"]
+[ext_resource type="Theme" uid="uid://cvl5xxh8xe3vi" path="res://theme/theme.tres" id="1_6e2e4"]
+[ext_resource type="Script" path="res://src/dialog/DialogNode.gd" id="2_sclcu"]
+[ext_resource type="Script" path="res://src/dialog/Dialog.gd" id="2_wh42w"]
 
 [sub_resource type="Gradient" id="Gradient_4g746"]
 colors = PackedColorArray(0, 0, 0, 0.784314, 0, 0, 0, 0)
@@ -13,15 +15,22 @@ fill_from = Vector2(1, 1)
 texture = SubResource("GradientTexture2D_5gv5b")
 region_rect = Rect2(0, 0, 64, 64)
 
-[node name="Dialog" type="Panel"]
+[sub_resource type="Resource" id="Resource_wioex"]
+script = ExtResource("2_wh42w")
+text = null
+character = null
+
+[node name="DialogNode" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 278.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_3ukch")
+theme = ExtResource("1_6e2e4")
 theme_override_styles/panel = SubResource("StyleBoxTexture_sineb")
+script = ExtResource("2_sclcu")
+dialog = SubResource("Resource_wioex")
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,15 +48,17 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Name" type="Label" parent="MarginContainer3"]
+[node name="Continue" type="Label" parent="MarginContainer3"]
 layout_mode = 2
 text = "..."
 uppercase = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-offset_right = 57.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 34.0
+grow_horizontal = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10

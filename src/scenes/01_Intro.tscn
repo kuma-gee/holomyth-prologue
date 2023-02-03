@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://cvl5xxh8xe3vi" path="res://theme/theme.tres" id="1"]
 [ext_resource type="Script" path="res://shared/effect/FadeEffect.gd" id="2"]
 [ext_resource type="Script" path="res://src/scenes/01_Intro.gd" id="2_xdtt4"]
-[ext_resource type="PackedScene" uid="uid://c0jncvulrw5rd" path="res://src/scenes/02_game.tscn" id="3_vraxu"]
+[ext_resource type="PackedScene" uid="uid://c0njm4o01qm30" path="res://src/scenes/02_game.tscn" id="3_vraxu"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3

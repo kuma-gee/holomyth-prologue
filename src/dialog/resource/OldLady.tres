@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://fhoqppxpsjya"]
+
+[ext_resource type="Script" path="res://src/dialog/Dialog.gd" id="1_ijjol"]
+
+[sub_resource type="Resource" id="Resource_owry1"]
+script = ExtResource("1_ijjol")
+text = "Wah!"
+character = "Ina"
+
+[resource]
+script = ExtResource("1_ijjol")
+text = "Good Morning!"
+character = "Old Lady"
+next_dialog = SubResource("Resource_owry1")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0jncvulrw5rd"]
+[gd_scene load_steps=12 format=3 uid="uid://c0njm4o01qm30"]
 
 [ext_resource type="PackedScene" uid="uid://cfibbua6o3i8u" path="res://src/player/Player.tscn" id="1_rnvix"]
 [ext_resource type="Texture2D" uid="uid://c187d7hjpgak2" path="res://assets/tileset.png" id="2_8qr7s"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://gilfxfxa0j4g" path="res://assets/gate.png" id="4_3t1p8"]
 [ext_resource type="Texture2D" uid="uid://bj2hxh67agr0e" path="res://assets/lantern.png" id="5_exo6s"]
 [ext_resource type="Texture2D" uid="uid://250eum3vv7hy" path="res://assets/sky.png" id="5_hrkdi"]
-[ext_resource type="PackedScene" uid="uid://b888v55qwlvns" path="res://src/dialog/dialog.tscn" id="7_0fysy"]
+[ext_resource type="PackedScene" uid="uid://k00cded3a4pe" path="res://src/dialog/DialogNode.tscn" id="7_ilu24"]
+[ext_resource type="Resource" uid="uid://fhoqppxpsjya" path="res://src/dialog/resource/OldLady.tres" id="8_f45rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_om5hh"]
 resource_name = "Ground"
@@ -147,4 +148,5 @@ texture = ExtResource("5_hrkdi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" parent="CanvasLayer" instance=ExtResource("7_0fysy")]
+[node name="DialogNode" parent="CanvasLayer" instance=ExtResource("7_ilu24")]
+dialog = ExtResource("8_f45rg")
