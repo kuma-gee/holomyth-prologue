@@ -29,3 +29,7 @@ func _physics_process(delta):
 func _on_player_input_just_pressed(ev: InputEvent):
 	if ev.is_action_pressed("interact"):
 		hand.interact()
+
+
+func _on_hand_interacted(pos: Vector2):
+	sprite.flip_h = sign(global_position.direction_to(pos)).x == -1

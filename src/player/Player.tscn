@@ -120,3 +120,4 @@ position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_xbkbs")
 
 [connection signal="just_pressed" from="PlayerInput" to="." method="_on_player_input_just_pressed"]
+[connection signal="interacted" from="Hand" to="." method="_on_hand_interacted"]

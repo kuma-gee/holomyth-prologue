@@ -1,11 +1,13 @@
 class_name Hand extends Area2D
 
+signal interacted(pos: Vector2)
+
 var last_interacted: Interactable
 var closest: Interactable
 
 
 func _ready():
-	connect("area_exited", _on_exit)
+	area_exited.connect(_on_exit)
 
 
 func _on_exit(area):
@@ -14,13 +16,15 @@ func _on_exit(area):
 
 func reinteract():
 	if last_interacted:
-		last_interacted.interact()
+		last_interacted.interact(global_position)
+		interacted.emit(last_interacted.global_position)
 
 
 func interact():
 	if closest:
-		closest.interact()
+		closest.interact(global_position)
 		last_interacted = closest
+		interacted.emit(closest.global_position)
 
 
 func _process(_delta):

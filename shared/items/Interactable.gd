@@ -1,7 +1,7 @@
 class_name Interactable
 extends Area2D
 
-signal interacted
+signal interacted(pos: Vector2)
 
 const OUTLINE = preload("res://shared/items/sprite_outline.tres")
 
@@ -19,5 +19,5 @@ func unhighlight():
 		sprite.material = null
 
 
-func interact():
-	emit_signal("interacted")
+func interact(pos: Vector2):
+	interacted.emit(pos)
