@@ -4,7 +4,7 @@ extends Control
 
 @onready var timer := $Timer
 @onready var fade1 := $CenterContainer/HBoxContainer/Label/FadeEffect
-@onready var fade2 := $CenterContainer/HBoxContainer/Label2/FadeEffect2
+@onready var fade2 := $CenterContainer/HBoxContainer/Label2/FadeEffect
 
 var skipped = false
 
@@ -17,15 +17,15 @@ func _unhandled_input(event):
 			if is_instance_valid(fade2):
 				fade2.finish()
 			skipped = true
-			_on_fade_effect_2_finished()
+			_on_fade_effect_finished()
 		else:
 			timer.stop()
 			_on_timer_timeout()
-			
-
-func _on_fade_effect_2_finished():
-	timer.start()
 
 
 func _on_timer_timeout():
 	SceneManager.change_scene(next_scene)
+
+
+func _on_fade_effect_finished():
+	timer.start()

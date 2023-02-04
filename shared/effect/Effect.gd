@@ -7,6 +7,7 @@ signal finished()
 @export var duration = 0.5
 @export var reverse = true
 @export var loop = false
+@export var autostart = false
 
 @export var transition = Tween.TRANS_LINEAR
 @export var ease_type = Tween.EASE_IN_OUT
@@ -14,24 +15,12 @@ signal finished()
 var tween: Tween
 
 func _ready():
-	_create_tween()
+	if autostart:
+		start()
 
-func _create_tween():
-	if tween:
-		tween.kill()
-	tween = get_tree().create_tween()
-	setup()
-	tween.play()
-	tween.finished.connect(_on_tween_completed)
 
-func _on_tween_completed():
-	if loop:
-		reverse = not reverse
-		_create_tween()
-	else:
-		finished.emit()
-		queue_free()
-
+func setup():
+	pass
 
 func _interpolate_node(node: Node, property: String, start_value, end_value):
 	var start = node.get(start_value) if start_value is String else start_value
@@ -52,9 +41,27 @@ func _interpolate(property: String, end_value, start_value = property):
 	else:
 		_interpolate_node(node, property, start_value, end_value)
 
-func setup():
-	pass
 
 func finish():
 	tween.pause()
 	tween.custom_step(delay + duration)
+
+
+func start():
+	_create_tween()
+
+func _create_tween():
+	if tween:
+		tween.kill()
+	tween = get_tree().create_tween()
+	setup()
+	tween.play()
+	tween.finished.connect(_on_tween_completed)
+
+func _on_tween_completed():
+	if loop:
+		reverse = not reverse
+		_create_tween()
+	else:
+		finished.emit()
+		queue_free()

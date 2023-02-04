@@ -1,7 +1,27 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cvl5xxh8xe3vi"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cvl5xxh8xe3vi"]
 
 [ext_resource type="FontFile" uid="uid://cq1u7do3wphx3" path="res://theme/jackeyfont.ttf" id="1_a33f2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2e2o"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06teb"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vul4"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prod4"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l10xk"]
+bg_color = Color(1, 1, 1, 0)
 
 [resource]
 default_font = ExtResource("1_a33f2")
 default_font_size = 10
+Button/styles/disabled = SubResource("StyleBoxFlat_e2e2o")
+Button/styles/focus = SubResource("StyleBoxFlat_06teb")
+Button/styles/hover = SubResource("StyleBoxFlat_0vul4")
+Button/styles/normal = SubResource("StyleBoxFlat_prod4")
+Button/styles/pressed = SubResource("StyleBoxFlat_l10xk")
