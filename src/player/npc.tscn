@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://8jww5ls22mgu"]
+
+[ext_resource type="Texture2D" uid="uid://4bl2cvo6y46s" path="res://assets/NPC_Grandma.png" id="1_lmmr2"]
+[ext_resource type="Script" path="res://src/player/npc.gd" id="1_lqk3p"]
+[ext_resource type="Script" path="res://shared/items/Interactable.gd" id="2_02hmx"]
+[ext_resource type="Resource" uid="uid://dahq7yn2fjylh" path="res://src/dialog/OldLady.tres" id="2_ugywt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e0fk"]
+size = Vector2(40, 46)
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_lqk3p")
+dialog = ExtResource("2_ugywt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_lmmr2")
+
+[node name="Interactable" type="Area2D" parent="."]
+script = ExtResource("2_02hmx")
+sprite_path = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("RectangleShape2D_2e0fk")
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

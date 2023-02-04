@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfibbua6o3i8u"]
+[gd_scene load_steps=18 format=3 uid="uid://cfibbua6o3i8u"]
 
 [ext_resource type="Texture2D" uid="uid://hk0s4gwsl05x" path="res://assets/InaMiko.png" id="1_476a2"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="1_sh67k"]
 [ext_resource type="Script" path="res://addons/input-system/PlayerInput.gd" id="3_4rjss"]
+[ext_resource type="Script" path="res://shared/items/Hand.gd" id="4_r8tg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r2xop"]
 size = Vector2(14, 38)
@@ -90,6 +91,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbkbs"]
+size = Vector2(28, 44)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_sh67k")
 speed = 100.0
@@ -106,3 +110,13 @@ playing = true
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("3_4rjss")
+
+[node name="Hand" type="Area2D" parent="."]
+position = Vector2(8, -21)
+script = ExtResource("4_r8tg1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hand"]
+position = Vector2(-6, 0)
+shape = SubResource("RectangleShape2D_xbkbs")
+
+[connection signal="just_pressed" from="PlayerInput" to="." method="_on_player_input_just_pressed"]

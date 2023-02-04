@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var input: PlayerInput = $PlayerInput
 @onready var sprite := $CollisionShape2D/AnimatedSprite2D
+@onready var hand := $Hand
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 10
@@ -23,3 +24,8 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	move_and_slide()
+
+
+func _on_player_input_just_pressed(ev: InputEvent):
+	if ev.is_action_pressed("interact"):
+		hand.interact()

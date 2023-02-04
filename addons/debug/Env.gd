@@ -2,8 +2,8 @@ extends Node
 
 enum Level {
 	ERROR,
-	INFO,
 	WARN,
+	INFO,
 	DEBUG,
 	TRACE,
 }

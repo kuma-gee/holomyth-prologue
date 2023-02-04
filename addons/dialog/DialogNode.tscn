@@ -1,22 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://k00cded3a4pe"]
+[gd_scene load_steps=10 format=3 uid="uid://clylguvry0mxa"]
 
-[ext_resource type="Theme" uid="uid://cvl5xxh8xe3vi" path="res://theme/theme.tres" id="1_6e2e4"]
-[ext_resource type="Script" path="res://src/dialog/DialogNode.gd" id="2_sclcu"]
-[ext_resource type="Script" path="res://src/dialog/Dialog.gd" id="2_wh42w"]
+[ext_resource type="Theme" uid="uid://cvl5xxh8xe3vi" path="res://theme/theme.tres" id="1_lxvsk"]
+[ext_resource type="Script" path="res://addons/dialog/DialogNode.gd" id="2_svnbv"]
+[ext_resource type="Script" path="res://addons/dialog/Dialog.gd" id="3_xtr32"]
+[ext_resource type="Texture2D" uid="uid://duiwt3sys0nrl" path="res://addons/dialog/dialog_marker.png" id="4_v3r4r"]
+[ext_resource type="Script" path="res://shared/effect/PositionEffect.gd" id="5_vi8tw"]
 
-[sub_resource type="Gradient" id="Gradient_4g746"]
+[sub_resource type="Gradient" id="Gradient_pmbnv"]
 colors = PackedColorArray(0, 0, 0, 0.784314, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5gv5b"]
-gradient = SubResource("Gradient_4g746")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aukfr"]
+gradient = SubResource("Gradient_pmbnv")
 fill_from = Vector2(1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sineb"]
-texture = SubResource("GradientTexture2D_5gv5b")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycosq"]
+texture = SubResource("GradientTexture2D_aukfr")
 region_rect = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_wioex"]
-script = ExtResource("2_wh42w")
+[sub_resource type="Resource" id="Resource_vnku5"]
+script = ExtResource("3_xtr32")
 text = null
 character = null
 
@@ -27,10 +29,10 @@ anchor_bottom = 1.0
 offset_top = 278.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_6e2e4")
-theme_override_styles/panel = SubResource("StyleBoxTexture_sineb")
-script = ExtResource("2_sclcu")
-dialog = SubResource("Resource_wioex")
+theme = ExtResource("1_lxvsk")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ycosq")
+script = ExtResource("2_svnbv")
+dialog = SubResource("Resource_vnku5")
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -39,8 +41,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -57.0
-offset_top = -40.0
+offset_left = -16.0
+offset_top = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/margin_left = 10
@@ -48,10 +50,16 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Continue" type="Label" parent="MarginContainer3"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer3"]
+texture_filter = 1
 layout_mode = 2
-text = "..."
-uppercase = true
+texture = ExtResource("4_v3r4r")
+stretch_mode = 2
+
+[node name="PositionEffect" type="Node" parent="MarginContainer3/TextureRect"]
+script = ExtResource("5_vi8tw")
+amount = 2
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
