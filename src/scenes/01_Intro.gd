@@ -11,8 +11,11 @@ var skipped = false
 func _unhandled_input(event):
 	if event.is_action_pressed("interact"):
 		if not skipped:
-			fade1.finish()
-			fade2.finish()
+			if is_instance_valid(fade1):
+				fade1.finish()
+				
+			if is_instance_valid(fade2):
+				fade2.finish()
 			skipped = true
 			_on_fade_effect_2_finished()
 		else:
