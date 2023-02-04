@@ -54,3 +54,7 @@ func _interpolate(property: String, end_value, start_value = property):
 
 func setup():
 	pass
+
+func finish():
+	tween.pause()
+	tween.custom_step(delay + duration)
