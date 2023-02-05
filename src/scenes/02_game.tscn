@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0njm4o01qm30"]
+[gd_scene load_steps=17 format=3 uid="uid://c0njm4o01qm30"]
 
 [ext_resource type="Script" path="res://src/scenes/02_game.gd" id="1_5wse8"]
 [ext_resource type="PackedScene" uid="uid://cfibbua6o3i8u" path="res://src/player/Player.tscn" id="1_rnvix"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://8jww5ls22mgu" path="res://src/player/npc.tscn" id="7_q6546"]
 [ext_resource type="Resource" uid="uid://dco2qp1by71eq" path="res://src/dialog/OldMan.tres" id="8_ue784"]
 [ext_resource type="Texture2D" uid="uid://fk7tgdt1hltq" path="res://assets/NPC_Grandpa.png" id="8_uomsd"]
+[ext_resource type="PackedScene" uid="uid://jf13bdift6jh" path="res://src/player/book_stand.tscn" id="10_vumcq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_om5hh"]
 resource_name = "Ground"
@@ -169,6 +170,9 @@ dialog = ExtResource("8_ue784")
 
 [node name="Sprite2D" parent="World/NPC2" index="0"]
 texture = ExtResource("8_uomsd")
+
+[node name="BookStand" parent="World" instance=ExtResource("10_vumcq")]
+position = Vector2(1170, 90)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-41, -42)

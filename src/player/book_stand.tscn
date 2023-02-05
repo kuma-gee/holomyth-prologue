@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://jf13bdift6jh"]
+
+[ext_resource type="Texture2D" uid="uid://ccsm8e02gwwm4" path="res://assets/bookstand.png" id="1_763t4"]
+[ext_resource type="Script" path="res://src/player/book_stand.gd" id="1_vm0wc"]
+[ext_resource type="Texture2D" uid="uid://ca03bjyi8qrbg" path="res://assets/book.png" id="2_mvye5"]
+[ext_resource type="Script" path="res://shared/effect/PositionEffect.gd" id="3_sjy3s"]
+[ext_resource type="Script" path="res://shared/items/Interactable.gd" id="4_2l8gm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l6o8"]
+size = Vector2(24, 34)
+
+[node name="BookStand" type="Node2D"]
+script = ExtResource("1_vm0wc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -7)
+texture = ExtResource("1_763t4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -23)
+texture = ExtResource("2_mvye5")
+
+[node name="PositionEffect" type="Node" parent="Sprite2D"]
+script = ExtResource("3_sjy3s")
+amount = 3
+duration = 1.0
+loop = true
+autostart = true
+transition = 7
+
+[node name="Interactable" type="Area2D" parent="."]
+position = Vector2(0, -23)
+script = ExtResource("4_2l8gm")
+sprite_path = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_0l6o8")
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
