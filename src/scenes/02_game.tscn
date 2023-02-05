@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0njm4o01qm30"]
+[gd_scene load_steps=14 format=3 uid="uid://c0njm4o01qm30"]
 
+[ext_resource type="Script" path="res://src/scenes/02_game.gd" id="1_5wse8"]
 [ext_resource type="PackedScene" uid="uid://cfibbua6o3i8u" path="res://src/player/Player.tscn" id="1_rnvix"]
 [ext_resource type="Texture2D" uid="uid://c187d7hjpgak2" path="res://assets/tileset.png" id="2_8qr7s"]
 [ext_resource type="Texture2D" uid="uid://duoov8g4xk3hm" path="res://assets/shrine.png" id="2_51c06"]
@@ -81,7 +82,34 @@ sources/0 = SubResource("TileSetAtlasSource_om5hh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aoctd"]
 size = Vector2(194, 134)
 
+[sub_resource type="Animation" id="Animation_33y7w"]
+resource_name = "Start"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("World/Player")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_init_anim"
+}, {
+"args": [],
+"method": &"start_move"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f7gek"]
+_data = {
+"Start": SubResource("Animation_33y7w")
+}
+
 [node name="Game" type="Node2D"]
+script = ExtResource("1_5wse8")
 
 [node name="World" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -119,7 +147,7 @@ texture = ExtResource("4_3t1p8")
 offset = Vector2(0, -34.414)
 
 [node name="Player" parent="World" instance=ExtResource("1_rnvix")]
-position = Vector2(0, 1)
+position = Vector2(-41, 1)
 collision_layer = 2
 floor_constant_speed = true
 floor_snap_length = 5.0
@@ -134,7 +162,7 @@ remote_path = NodePath("../../../../Camera2D")
 position = Vector2(333, 72)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -42)
+position = Vector2(-41, -42)
 current = true
 limit_left = -200
 limit_bottom = 150
@@ -147,3 +175,8 @@ motion_mirroring = Vector2(1300, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D/ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("5_hrkdi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f7gek")
+}

@@ -6,18 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://duiwt3sys0nrl" path="res://addons/dialog/dialog_marker.png" id="4_v3r4r"]
 [ext_resource type="Script" path="res://shared/effect/PositionEffect.gd" id="5_vi8tw"]
 
-[sub_resource type="Gradient" id="Gradient_pmbnv"]
+[sub_resource type="Gradient" id="Gradient_lshk0"]
 colors = PackedColorArray(0, 0, 0, 0.784314, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_aukfr"]
-gradient = SubResource("Gradient_pmbnv")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_maap4"]
+gradient = SubResource("Gradient_lshk0")
 fill_from = Vector2(1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycosq"]
-texture = SubResource("GradientTexture2D_aukfr")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cikrw"]
+texture = SubResource("GradientTexture2D_maap4")
 region_rect = Rect2(0, 0, 64, 64)
 
-[sub_resource type="Resource" id="Resource_vnku5"]
+[sub_resource type="Resource" id="Resource_jawie"]
 script = ExtResource("3_xtr32")
 text = null
 character = null
@@ -30,9 +30,9 @@ offset_top = 278.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lxvsk")
-theme_override_styles/panel = SubResource("StyleBoxTexture_ycosq")
+theme_override_styles/panel = SubResource("StyleBoxTexture_cikrw")
 script = ExtResource("2_svnbv")
-dialog = SubResource("Resource_vnku5")
+dialog = SubResource("Resource_jawie")
 
 [node name="MarginContainer3" type="MarginContainer" parent="."]
 layout_mode = 1

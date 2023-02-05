@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cfibbua6o3i8u"]
+[gd_scene load_steps=24 format=3 uid="uid://cfibbua6o3i8u"]
 
 [ext_resource type="Texture2D" uid="uid://hk0s4gwsl05x" path="res://assets/InaMiko.png" id="1_476a2"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="1_sh67k"]
@@ -48,6 +48,30 @@ region = Rect2(448, 0, 56, 48)
 atlas = ExtResource("1_476a2")
 region = Rect2(504, 0, 56, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk1oa"]
+atlas = ExtResource("1_476a2")
+region = Rect2(0, 48, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsxn6"]
+atlas = ExtResource("1_476a2")
+region = Rect2(56, 48, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gv38"]
+atlas = ExtResource("1_476a2")
+region = Rect2(112, 48, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md2ui"]
+atlas = ExtResource("1_476a2")
+region = Rect2(168, 48, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh2f0"]
+atlas = ExtResource("1_476a2")
+region = Rect2(224, 48, 56, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwfyp"]
+atlas = ExtResource("1_476a2")
+region = Rect2(280, 48, 56, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_voped"]
 animations = [{
 "frames": [{
@@ -89,6 +113,29 @@ animations = [{
 "loop": true,
 "name": &"Walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk1oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsxn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gv38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md2ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh2f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vwfyp")
+}],
+"loop": true,
+"name": &"Wipe",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xbkbs"]
@@ -105,7 +152,7 @@ shape = SubResource("RectangleShape2D_r2xop")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
 texture_filter = 1
 frames = SubResource("SpriteFrames_voped")
-animation = &"Walk"
+animation = &"Wipe"
 playing = true
 
 [node name="PlayerInput" type="Node" parent="."]

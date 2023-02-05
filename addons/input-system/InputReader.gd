@@ -1,7 +1,7 @@
 class_name InputReader
 extends Node
 
-signal disabled(disable: bool)
+signal disabled_change(disable: bool)
 signal just_pressed(ev: InputEvent)
 signal just_released(ev: InputEvent)
 
@@ -9,20 +9,20 @@ var input_types = InputMap.get_actions()
 
 var inputs = []
 var action_strength = {}
-var _disabled = false : set = _set_disabled
+var disabled = false : set = _set_disabled
 var disabled_exception = []
 
 
 func _set_disabled(d):
-	_disabled = d
-	emit_signal("disabled", d)
+	disabled = d
+	disabled_change.emit(d)
 
 
 func handle_input(event: InputEvent):
 	var actions = _get_actions_for_event(event)
 
 	for action in actions:
-		if _disabled and not action in disabled_exception:
+		if disabled and not action in disabled_exception:
 			continue
 
 		action_strength[action] = event.get_action_strength(action)
@@ -70,12 +70,12 @@ func get_action_strength(key: String) -> float:
 
 
 func disable(exceptions: Array = []) -> void:
-	self._disabled = true
+	self.disabled = true
 	inputs.clear()
 	action_strength.clear()
 	disabled_exception = exceptions
 
 
 func enable() -> void:
-	self._disabled = false
+	self.disabled = false
 	disabled_exception = []
