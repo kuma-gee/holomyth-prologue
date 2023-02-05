@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c0njm4o01qm30"]
+[gd_scene load_steps=16 format=3 uid="uid://c0njm4o01qm30"]
 
 [ext_resource type="Script" path="res://src/scenes/02_game.gd" id="1_5wse8"]
 [ext_resource type="PackedScene" uid="uid://cfibbua6o3i8u" path="res://src/player/Player.tscn" id="1_rnvix"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bj2hxh67agr0e" path="res://assets/lantern.png" id="5_exo6s"]
 [ext_resource type="Texture2D" uid="uid://250eum3vv7hy" path="res://assets/sky.png" id="5_hrkdi"]
 [ext_resource type="PackedScene" uid="uid://8jww5ls22mgu" path="res://src/player/npc.tscn" id="7_q6546"]
+[ext_resource type="Resource" uid="uid://dco2qp1by71eq" path="res://src/dialog/OldMan.tres" id="8_ue784"]
+[ext_resource type="Texture2D" uid="uid://fk7tgdt1hltq" path="res://assets/NPC_Grandpa.png" id="8_uomsd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_om5hh"]
 resource_name = "Ground"
@@ -161,6 +163,13 @@ remote_path = NodePath("../../../../Camera2D")
 [node name="NPC" parent="World" instance=ExtResource("7_q6546")]
 position = Vector2(333, 72)
 
+[node name="NPC2" parent="World" instance=ExtResource("7_q6546")]
+position = Vector2(566, 72)
+dialog = ExtResource("8_ue784")
+
+[node name="Sprite2D" parent="World/NPC2" index="0"]
+texture = ExtResource("8_uomsd")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-41, -42)
 current = true
@@ -180,3 +189,5 @@ texture = ExtResource("5_hrkdi")
 libraries = {
 "": SubResource("AnimationLibrary_f7gek")
 }
+
+[editable path="World/NPC2"]
