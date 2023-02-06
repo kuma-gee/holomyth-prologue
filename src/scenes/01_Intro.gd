@@ -24,7 +24,7 @@ func _unhandled_input(event):
 
 
 func _on_timer_timeout():
-	SceneManager.change_scene(next_scene)
+	SceneManager.change_scene(next_scene, SceneManager.Transition.CURTAIN_H, 1)
 
 
 func _on_fade_effect_finished():

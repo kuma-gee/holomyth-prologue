@@ -36,7 +36,8 @@ text = "Prologue:"
 
 [node name="FadeEffect" type="Node" parent="CenterContainer/HBoxContainer/Label"]
 script = ExtResource("2")
-autostart = true
+duration = 1.0
+reverse = true
 
 [node name="Label2" type="Label" parent="CenterContainer/HBoxContainer"]
 layout_mode = 2
@@ -44,8 +45,9 @@ text = "The Awakening"
 
 [node name="FadeEffect" type="Node" parent="CenterContainer/HBoxContainer/Label2"]
 script = ExtResource("2")
-delay = 1.5
-autostart = true
+delay = 2.0
+duration = 1.0
+reverse = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

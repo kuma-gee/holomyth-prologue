@@ -56,10 +56,10 @@ script = ExtResource("5_n3bxh")
 
 [node name="FadeEffect" type="Node" parent="MarginContainer/HBoxContainer/Label2"]
 script = ExtResource("5_ik64j")
-reverse = false
+autostart = false
 
 [node name="ScaleEffect" type="Node" parent="MarginContainer/HBoxContainer/Label2"]
 script = ExtResource("7_gaqcj")
-reverse = false
+autostart = false
 
 [connection signal="finished" from="MarginContainer/HBoxContainer/Label2/FadeEffect" to="." method="_on_fade_effect_finished"]
